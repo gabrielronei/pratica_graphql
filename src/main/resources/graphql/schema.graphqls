@@ -1,0 +1,24 @@
+type Query {
+    gameById(id: Float): Game
+    publisherById(id: Float): Publisher
+}
+
+type Game {
+    id: ID!
+    title: String!
+    description: String!
+    releaseDate: String!
+    publisher: Publisher!
+}
+
+type Publisher {
+    id: ID!
+    name: String!
+    description: String!
+    creationDate: String!
+}
+
+type Mutation {
+    createPublisher(name: String!, description: String!, creationDate: String!) : Publisher!
+    createGame(title: String!, description: String!, releaseDate: String!, publisher_id: Float!) : Game!
+}
