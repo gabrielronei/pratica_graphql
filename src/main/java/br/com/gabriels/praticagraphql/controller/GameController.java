@@ -20,10 +20,10 @@ public class GameController {
     }
 
     @MutationMapping
-    public Game createGame(@Argument String title, @Argument String description, @Argument String releaseDate, @Argument Long publisher_id) {
+    public Game createGame(@Argument String title, @Argument String description, @Argument LocalDate releaseDate, @Argument Long publisher_id) {
         Publisher publisher = publisherRepository.findById(publisher_id).orElseThrow(() -> new RuntimeException("Publisher not found!"));
 
-        Game game = new Game(title, description, LocalDate.parse(releaseDate), publisher);
+        Game game = new Game(title, description, releaseDate, publisher);
 
         return gameRepository.save(game);
     }

@@ -17,8 +17,8 @@ public class PublisherController {
     }
 
     @MutationMapping
-    public Publisher createPublisher(@Argument String name, @Argument String description, @Argument String creationDate) {
-        Publisher publisher = new Publisher(name, description, LocalDate.parse(creationDate));
+    public Publisher createPublisher(@Argument String name, @Argument String description, @Argument LocalDate creationDate) {
+        Publisher publisher = new Publisher(name, description, creationDate);
 
         return publisherRepository.save(publisher);
     }
